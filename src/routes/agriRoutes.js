@@ -21,4 +21,16 @@ router.post("/agree/:response_id", authMiddleware, agriController.agreeOnRequest
 // ✅ Get agreement history
 router.get("/history", authMiddleware, agriController.getHistory);
 
+
+// ✅ Agreement History
+router.get("/history/customer", authMiddleware, agriController.getCustomerAgreementHistory);
+router.get("/history/farmer", authMiddleware, agriController.getFarmerAgreementHistory);
+
+// ✅ Agreement Details
+router.get("/agreement/:id", authMiddleware, agriController.getAgreementDetails);
+
+// ✅ Cancel Agreement (Customer)
+router.put("/agreement/cancel/:id", authMiddleware, agriController.cancelAgreement);
+
+
 module.exports = router;
